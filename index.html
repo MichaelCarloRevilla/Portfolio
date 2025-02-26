@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Lexend', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #4c8afd;
+      color: #ffffff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #333;
+    }
+    .menu-toggle {
+  display: none; 
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    text-align: center;
+  }
+
+  .show-menu {
+    display: flex;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+    header .logo img, .footer-logo {
+      height: 30px;
+      margin-right: 10px;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    header nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      transition: all 0.3s;
+    }
+
+    header nav a:hover {
+      color: #007BFF;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 40px;
+      margin-top: 80px;
+      flex: 1;
+    }
+
+    .hero .profile {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); 
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero .content {
+      max-width: 600px;
+    }
+
+    .hero .content h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      margin-left: -600px;
+    }
+
+    .hero .content p {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      margin-left: -600px;
+      color: #ffffff;
+    }
+
+    .hero .content .buttons {
+      display: flex;
+      gap: 10px;
+      margin-left: -600px;
+    }
+
+    .hero .content .buttons a {
+      text-decoration: none;
+      padding: 15px 40px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+      display: inline-block;
+      width: 170px;
+    }
+
+    .hero .content .buttons .resume,
+    .hero .content .buttons .contact {
+      border: 2px solid #ffffff;
+      text-align: center;
+    }
+
+    .hero .content .buttons .resume {
+      background-color: #ffffff;
+      color: #007BFF;
+    }
+
+    .hero .content .buttons .resume:hover {
+      background-color: #0056b3;
+      color: white;
+      border-color: #ffffff;
+    }
+
+    .hero .content .buttons .contact {
+      background-color: white;
+      color: #007BFF;
+    }
+
+    .hero .content .buttons .contact:hover {
+      background-color: #0056b3;
+      color: white;
+      border-color: #ffffff;
+    }
+
+    .about {
+      padding: 80px 40px;
+      text-align: center;
+      background-image: url("C:\Users\Michael Carlo\Downloads\website assets\itbg.jpg");
+      background-size: cover;
+      background-position: center;
+      color: whitesmoke;
+      flex: 1;
+    }
+
+    .about h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: auto;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-logo {
+      height: 40px;
+      margin-bottom: 5px;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    footer p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+   
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  display: none; 
+  z-index: 2000;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="C:\Users\Michael Carlo\Downloads\website assets\logo.png" alt="Logo">
+      MichaelCarlo
+    </div>
+  
+    <button class="menu-toggle">☰</button>
+  
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="contact-link">Contact</a>
+      <a href="#" id="projects-btn">Projects</a>
+      <a href="#hire" class="resume" style="color: white; padding: 10px; background: #03118b; border-radius: 5px;">Hire Me</a>
+    </nav>
+  </header>
+  
+
+  <section id="home" class="hero">
+    <div class="profile">
+      <img src="C:\Users\Michael Carlo\Downloads\website assets\profile.jpeg" alt="Profile Image">
+    </div>
+    <div class="content">
+      <h1>Explore My Portfolio</h1>
+      <p>Join me as I journey through the life of an IT student</p>
+      <div class="buttons">
+        <a href="#resume" class="resume">Resume</a>
+        <a href="#contact" class="contact contact-link">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a 3rd year IT student focused on learning about computer systems, programming, networking, and software development.
+      I wish to work with various technologies, coding languages, and problem-solving techniques to build and manage digital solutions in the future.
+    </p>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <img src="C:\Users\Michael Carlo\Downloads\website assets\logo.png" alt="Logo" class="footer-logo">
+      <p>MICHAEL CARLO</p>
+      <p>Contact information</p>
+      <p>Mobile number: +639150641388</p>
+      <p>Email: michaelcarlosacrorevilla@gmail.com</p>
+      <p>© 2025 MCR. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    
+    document.querySelectorAll('.contact-link').forEach(button => {
+      button.addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  
+    
+    document.getElementById("projects-btn").addEventListener("click", function(event) {
+      event.preventDefault(); 
+  
+      let popup = document.getElementById("popup");
+      popup.style.display = "block"; 
+  
+      setTimeout(() => {
+        popup.style.display = "none"; 
+      }, 2000);
+    });
+  </script>
+  
+  
+
+
+<div id="popup" class="popup">Coming soon...</div>
+
+<script>
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('show-menu');
+  });
+</script>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  
+  menuToggle.addEventListener('click', function() {
+    nav.classList.toggle('show-menu');
+  });
+
+  
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      nav.classList.remove('show-menu');
+    }
+  });
+</script>
+
+
+</body>
+</html>
